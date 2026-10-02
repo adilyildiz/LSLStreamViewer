@@ -39,3 +39,17 @@ Laboratuvar ve araştırma ortamlarında ağdaki tüm **LabStreamingLayer (LSL)*
 4. Sayısal bir stream ise **Canlı Grafik** sekmesinde sinyaller akmaya başlar.
 5. Marker stream'i ise **Veri Akışı / Log** sekmesinde markerlar anında görünür.
 6. Test amaçlı üst bardaki **🧪 Test Stream Başlat** butonuna basarak anında simüle EEG sinyali oluşturabilirsiniz.
+
+---
+
+## 📦 Tek Parça (.exe) Derleme
+
+Tüm DLL'leri (.NET 8 çalışma zamanı, Windows kütüphaneleri ve `lsl.dll`) tek bir çalıştırılabilir dosya içine gömmek için:
+
+- Proje dizinindeki `build_single_exe.bat` dosyasını çift tıklayarak çalıştırın, veya
+- Terminalden şu komutu girin:
+  ```bash
+  dotnet publish -c Release -r win-x64 --self-contained true -o ./publish
+  ```
+
+Derleme sonucunda oluşturulan tek parça `LSLStreamViewer.exe` dosyası hem proje ana dizinine (`./LSLStreamViewer.exe`) hem de `publish/` klasörüne kopyalanır. Yanında başka hiçbir DLL veya bağımlılık olmadan herhangi bir 64-bit Windows bilgisayarda taşınabilir (portable) olarak çalışır.

@@ -17,6 +17,8 @@
     <PublishSingleFile>true</PublishSingleFile>
     <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
     <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+    <DebugType Condition="'$(Configuration)' == 'Release'">none</DebugType>
+    <DebugSymbols Condition="'$(Configuration)' == 'Release'">false</DebugSymbols>
   </PropertyGroup>
 
   <!-- Embed lsl.dll and app.ico as resources inside the assembly -->
@@ -28,5 +30,10 @@
       <LogicalName>app.ico</LogicalName>
     </EmbeddedResource>
   </ItemGroup>
+
+  <!-- Automatically copy the single-file executable to the project root on publish -->
+  <Target Name="CopySingleFileToRoot" AfterTargets="Publish">
+    <Copy SourceFiles="$(PublishDir)$(AssemblyName).exe" DestinationFolder="$(MSBuildProjectDirectory)" ContinueOnError="true" />
+  </Target>
 
 </Project>
