@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <AssemblyName>LSLStreamViewer</AssemblyName>
+    <RootNamespace>LSLStreamViewer</RootNamespace>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+
+    <ApplicationIcon>app.ico</ApplicationIcon>
+
+    <!-- Self-contained publish settings for portability -->
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <SelfContained>true</SelfContained>
+    <PublishSingleFile>true</PublishSingleFile>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+  </PropertyGroup>
+
+  <!-- Embed lsl.dll and app.ico as resources inside the assembly -->
+  <ItemGroup>
+    <EmbeddedResource Include="lib\lsl.dll">
+      <LogicalName>lsl.dll</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="app.ico">
+      <LogicalName>app.ico</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>

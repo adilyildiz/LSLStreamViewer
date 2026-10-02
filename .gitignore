@@ -1,0 +1,9 @@
+bin/
+obj/
+publish/
+scratch_bin/
+*.user
+*.suo
+.vs/
+.dotnet/
+
